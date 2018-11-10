@@ -411,7 +411,7 @@ class MollieApiClient
             $headers['X-Mollie-Client-Info'] = php_uname();
         }
 
-        $request = new Request($httpMethod, $url, $headers, $httpBody);
+        $request = new Request($httpMethod, $url . '?include=details.qrCode', $headers, $httpBody);
 
         try {
             $response = $this->httpClient->send($request, ['http_errors' => false]);
